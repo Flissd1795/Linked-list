@@ -5,13 +5,13 @@ export function insertNodeInOrder(value) { // Pass in the value we want to add t
         value: value,
         next: null // Pointer isn't pointing towards anything currently
     };
-
+    
     if (head === null) { // Head always points towards the first node object
         head = newNode; // If the list is empty, add the new node to the beginning 
         return; 
     }
 
-    let current = head; // Assign head node to curreny 
+    let current = head; // Assign head node to current
 
     while (current.next !== null) { // While the nodes pointer looks to another node, keep going
         current = current.next; // Keep going through the list until current.next == null (end of list)
@@ -43,8 +43,8 @@ printList();
 
 export function insertAfterValue(targetValue, newValue) {
     let newNode = {
-        value: newValue, 
-        next: null
+        value: newValue, // l 
+        next: null // o
     };
 
     let current = head; // Start from the beginning of list
@@ -64,12 +64,12 @@ head = null;
 console.log('insertAfterValue')
 insertNodeInOrder('h');
 insertNodeInOrder('e');
-insertNodeInOrder('l');
+insertNodeInOrder('l'); // next: l
 insertNodeInOrder('o');
 
 printList();
 
-insertAfterValue('l', 'l');
+insertAfterValue('l', 'l'); // next: o
 
 printList();
 
@@ -116,7 +116,7 @@ function deleteNode(node) {
     }
 
     // Delete the head
-    if (head === node) { // If we need to delete the head
+    if (head.value === node.value) { // If we need to delete the head
         head = head.next; // Make the head the next node along, so nothing references current head anymore
         return;
     }
